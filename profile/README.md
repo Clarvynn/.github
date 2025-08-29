@@ -4,7 +4,7 @@
 
 <p align="center">
   <strong>Application Telemetry, Reimagined.</strong><br>
-  Declarative observability. Zero code. Full signal clarity.
+  Govern what gets observed — before storage, before cost, before chaos.
 </p>
 
 <p align="center">
@@ -25,28 +25,45 @@ Optimized for clarity, not complexity.
 
 ## Why Clarvynn?
 
-- Persistent exemplars with source-level correlation
-- Declarative configuration via YAML
-- Zero code instrumentation required
-- Fully composable with the Prometheus + Tempo + Grafana ecosystem
-- Git-friendly, CLI-native, infrastructure-aware
+Clarvynn addresses the root of observability bloat: uncontrolled telemetry generation.  
+It gives teams direct control over signal flow — before ingestion, before storage, before cost.
+
+- Telemetry as Code: declarative YAML for structured control  
+- No-code instrumentation (Flask, Django, FastAPI supported)  
+- Persistent exemplars with source-level trace-metric correlation  
+- Native integration with Prometheus, Tempo, Grafana  
+- CLI-first, Git-native, built for secure automation  
+- Designed to suppress noise while retaining critical signals
+
+---
+
+## What Clarvynn Enables
+
+- Define intent: What signals matter and why  
+- Enforce at runtime: Prevent unnecessary telemetry before it leaves the app  
+- Capture anomalies reliably, even under sampling  
+- Route suppressed data to cold storage (for compliance or audits)  
+- Drastically reduce observability costs without losing insights
 
 ---
 
 ## Current Focus
 
-- Python support (Flask, FastAPI, Django)
-- Trace-metric correlation via exemplars
-- Telemetry-as-Code configuration (TaC)
-- CLI integration: `clarvynn run`
+- Python support (Flask, FastAPI, Django)  
+- CLI: `clarvynn run`, `clarvynn init`, `clarvynn validate`  
+- OpenTelemetry SDK integration with custom exemplar retention  
+- TaC (Telemetry as Code) config validation and runtime injection  
+- Production-tested trace-metric correlation via exemplars
 
 ---
 
 ## Coming Soon
 
-- Multi-language support (Go, Node.js, Java)
-- Controlled exemplar creation filters
-- Log correlation (opt-in)
+- Language support: Go, Node.js, Java  
+- Beyla + Clarvynn integration  
+- Log correlation via OTLP  
+- Telemetry governance at scale: multi-service, multi-tenant  
+- Clarvynn Operator for Kubernetes (with YAML-based control)
 
 ---
 
@@ -55,16 +72,15 @@ Optimized for clarity, not complexity.
 OpenTelemetry defines the spec.  
 Clarvynn defines the experience.
 
-This isn’t about patching metrics or traces.  
-It’s about making observability **predictable, programmable, and powerful** — starting at the source.
+Clarvynn flips observability from reactive analysis to proactive control.  
+No more guesswork. No more overload. Just meaningful, intelligent telemetry by default.
 
-If you’ve ever said “this dashboard doesn’t explain anything,”  
-Clarvynn is for you.
+If you've ever struggled with dashboards that say too much but explain too little — Clarvynn is for you.
 
 ---
 
 ## Status
 
 - OSS-first  
-- Actively under development  
+- In active development  
 - Launching soon  
