@@ -1,86 +1,79 @@
 <h1 align="center">
   Clarvynn
 </h1>
-
 <p align="center">
-  <strong>Application Telemetry, Reimagined.</strong><br>
-  Govern what gets observed — before storage, before cost, before chaos.
+  <strong>Telemetry governance at the source.</strong><br>
+  Stop generating observability data you'll never use.
 </p>
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/clarvynn/.github/main/assets/logo.jpg" alt="Clarvynn logo" width="100" />
 </p>
 
 ---
 
-## What is Clarvynn?
+## What Is Clarvynn?
 
-**Clarvynn** is a source-level orchestration layer for OpenTelemetry.  
-It transforms how developers and SREs manage observability by introducing **Telemetry as Code** — a declarative, language-agnostic approach to define what telemetry gets emitted, when, and why.
+Teams generate terabytes of telemetry they know is wasteful—health checks, debug logs, routine operations. But there's no systematic way to control what gets created at the source.
 
-Built on top of OpenTelemetry.  
-Optimized for clarity, not complexity.
+Clarvynn provides policy-based governance over telemetry generation using CPL (Clarvynn Policy Language):
+```yaml
+# policy.yaml
+sampling:
+  base_rate: 0.01  # 1% of routine traffic
+
+conditions:
+  - name: server_errors
+    when: "status_code >= 500"
+  
+  - name: slow_requests
+    when: "duration_ms > 1000"
+  
+  - name: critical_endpoints
+    when: "path contains '/api/payment'"
+```
+
+**Result:** 60-80% cost reduction without losing critical signals.
+
+---
+
+## How It Works
+
+Clarvynn hooks into telemetry generation points and evaluates CPL policies before data leaves your application.
+
+**Starting with:** Python OpenTelemetry adapter for Flask, Django, and FastAPI applications.
+
+**Planned:** Infrastructure log filtering, multi-language support, additional enforcement points.
 
 ---
 
 ## Why Clarvynn?
 
-Clarvynn addresses the root of observability bloat: uncontrolled telemetry generation.  
-It gives teams direct control over signal flow — before ingestion, before storage, before cost.
+Most observability solutions filter telemetry downstream—at collectors or backends. By then you've already paid for network transmission, ingestion, and application overhead.
 
-- Telemetry as Code: declarative YAML for structured control  
-- No-code instrumentation (Flask, Django, FastAPI supported)  
-- Persistent exemplars with source-level trace-metric correlation  
-- Native integration with Prometheus, Tempo, Grafana  
-- CLI-first, Git-native, built for secure automation  
-- Designed to suppress noise while retaining critical signals
+Clarvynn governs upstream, at the source, before telemetry becomes expensive.
 
 ---
 
-## What Clarvynn Enables
+## Current Status
 
-- Define intent: What signals matter and why  
-- Enforce at runtime: Prevent unnecessary telemetry before it leaves the app  
-- Capture anomalies reliably, even under sampling  
-- Route suppressed data to cold storage (for compliance or audits)  
-- Drastically reduce observability costs without losing insights
+**Pre-release.** Building initial implementation:
 
----
-
-## Current Focus
-
-- Python support (Flask, FastAPI, Django)  
-- CLI: `clarvynn run`, `clarvynn init`, `clarvynn validate`  
-- OpenTelemetry SDK integration with custom exemplar retention  
-- TaC (Telemetry as Code) config validation and runtime injection  
-- Production-tested trace-metric correlation via exemplars
+- Python OpenTelemetry adapter (policy-based sampling at SDK level)
+- CPL (Clarvynn Policy Language) specification
+- Flask, Django, FastAPI support
 
 ---
 
-## Coming Soon
+## Get Involved
 
-- Language support: Go, Node.js, Java  
-- Beyla + Clarvynn integration  
-- Log correlation via OTLP  
-- Telemetry governance at scale: multi-service, multi-tenant  
-- Clarvynn Operator for Kubernetes (with YAML-based control)
+Interested in piloting? Email: dheerajvanamala@clarvynn.io
+
+Watch this repository to follow development
 
 ---
 
-## The Vision
+## License
 
-OpenTelemetry defines the spec.  
-Clarvynn defines the experience.
+Apache 2.0
 
-Clarvynn flips observability from reactive analysis to proactive control.  
-No more guesswork. No more overload. Just meaningful, intelligent telemetry by default.
-
-If you've ever struggled with dashboards that say too much but explain too little — Clarvynn is for you.
-
----
-
-## Status
-
-- OSS-first  
-- In active development  
-- Launching soon  
+Built by [@dheeraj-vanamala](https://github.com/dheeraj-vanamala)
