@@ -13,7 +13,7 @@
 
 ## What Is Clarvynn?
 
-Teams generate terabytes of telemetry they know is wasteful—health checks, debug logs, routine operations. But there's no systematic way to control what gets created at the source.
+Teams generate terabytes of telemetry they know is wasteful - health checks, debug logs, routine operations. But there's no systematic way to control what gets created at the source.
 
 Clarvynn provides policy-based governance over telemetry generation using CPL (Clarvynn Policy Language):
 ```yaml
@@ -48,7 +48,7 @@ Clarvynn hooks into telemetry generation points and evaluates CPL policies befor
 
 ## Why Clarvynn?
 
-Most observability solutions filter telemetry downstream—at collectors or backends. By then you've already paid for network transmission, ingestion, and application overhead.
+Most observability solutions filter telemetry downstream - at collectors or backends. By then you've already paid for network transmission, ingestion, and application overhead.
 
 Clarvynn governs upstream, at the source, before telemetry becomes expensive.
 
