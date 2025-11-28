@@ -2,7 +2,7 @@
   Clarvynn
 </h1>
 <p align="center">
-  <strong>Observability Governance at the Edge</strong><br>
+  <strong>Observability Governance at the Source</strong><br>
   Stop generating observability data you'll never use.
 </p>
 <p align="center">
