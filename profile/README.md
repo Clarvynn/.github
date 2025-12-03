@@ -2,78 +2,65 @@
   Clarvynn
 </h1>
 <p align="center">
-  <strong>Observability Governance at the Source</strong><br>
-  Stop generating observability data you'll never use.
+  <strong>A Control Plane for OpenTelemetry</strong><br>
+  Enforcing Purposeful Observability at the Edge.
 </p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/clarvynn/.github/main/assets/logo.jpg" alt="Clarvynn logo" width="100" />
 </p>
 
----
-
-## What Is Clarvynn?
-
-Teams generate terabytes of telemetry they know is wasteful - health checks, debug logs, routine operations. But there's no systematic way to control what gets created at the source.
-
-Clarvynn provides policy-based governance over telemetry generation using CPL (Clarvynn Policy Language):
-```yaml
-# policy.yaml
-sampling:
-  base_rate: 0.01  # 1% of routine traffic
-
-conditions:
-  - name: server_errors
-    when: "status_code >= 500"
-  
-  - name: slow_requests
-    when: "duration_ms > 1000"
-  
-  - name: critical_endpoints
-    when: "path contains '/api/payment'"
-```
-
-**Result:** 60-80% cost reduction without losing critical signals.
+<p align="center">
+  <a href="https://clarvynn.io">Website</a> • 
+  <!-- <a href="https://discord.gg/clarvynn">Community</a> •  -->
+  <a href="https://github.com/clarvynn/clarvynn">Python Adapter</a>
+</p>
 
 ---
 
-## How It Works
+## The Mission
 
-Clarvynn hooks into telemetry generation points and evaluates CPL policies before data leaves your application.
+We operate on the principle that **observability is a signal-to-noise problem, not a storage problem.** While auditability demands retention, the overwhelming volume of routine telemetry should never consume the **compute and human attention** reserved for critical signals.
 
-**Starting with:** Python OpenTelemetry adapter for Flask, Django, and FastAPI applications.
+Clarvynn exists to solve the "Missing Tooling Gap" in the OpenTelemetry ecosystem: **Source-Level Governance.** Instead of dumping unsampled data into collectors, Clarvynn empowers engineering teams to define **Explicit Intent** and enforce **Deferred Head Sampling** directly within the application process.
 
-**Planned:** Infrastructure log filtering, multi-language support, additional enforcement points.
+**The Goal:** Capture 100% of critical context (errors, latency, golden signals) while aggressively sampling the routine noise before it consumes network or compute resources.
+
+---
+## The Ecosystem
+
+Clarvynn is designed as a language-agnostic control plane. Currently, the reference implementation is available for Python, with other languages on the roadmap.
+
+### Application Adapters
+
+| Component | Status | Description |
+| :--- | :--- | :--- |
+| **[clarvynn-otel-python](https://github.com/clarvynn/clarvynn)** | **Beta** | **Available Now.** Hooks into OTel Python SDK to provide CPL evaluation and the log buffer. |
+| **clarvynn-otel-go** | *Planned* | Native Go adapter for high-performance services. |
+| **clarvynn-otel-java** | *Planned* | Java agent extension for enterprise workloads. |
+
+### Core Specifications
+
+| Component | Status | Description |
+| :--- | :--- | :--- |
+| **[CPL (Clarvynn Policy Language)](https://github.com/clarvynn/clarvynn/blob/main/docs/CPL_REFERENCE.md)** | **Spec** | The universal schema for defining observability intent. Currently hosted within the Python adapter repository. |
 
 ---
 
-## Why Clarvynn?
+## Community & Governance
 
-Most observability solutions filter telemetry downstream - at collectors or backends. By then you've already paid for network transmission, ingestion, and application overhead.
+Clarvynn is an Open Source project designed to complement OpenTelemetry. We actively track upstream SIGs (Config, Sampling) to ensure our architecture aligns with the future of the standard.
 
-Clarvynn governs upstream, at the source, before telemetry becomes expensive.
-
----
-
-## Current Status
-
-**Pre-release.** Building initial implementation:
-
-- Python OpenTelemetry adapter (policy-based sampling at SDK level)
-- CPL (Clarvynn Policy Language) specification
-- Flask, Django, FastAPI support
+* **Validation:** Our architectural approach addresses gaps identified by OpenTelemetry Governance Committee member.
+* **Contribution:** We welcome contributors who want to help build the standard for Purposeful Observability.
 
 ---
 
-## Get Involved
+## 📬 Contact
 
-Interested in piloting? Email: dheerajvanamala@clarvynn.io
-
-Watch this repository to follow development
+* **Pilot Inquiries:** [dheerajvanamala@clarvynn.io](mailto:dheerajvanamala@clarvynn.io)
 
 ---
 
-## License
-
-Apache 2.0
-
-Built by [@dheeraj-vanamala](https://github.com/dheeraj-vanamala)
+<p align="center">
+  <sub>Built by <a href="https://github.com/dheeraj-vanamala">@dheeraj-vanamala</a></sub>
+</p>
