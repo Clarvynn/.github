@@ -2,8 +2,8 @@
   Clarvynn
 </h1>
 <p align="center">
-  <strong>A Control Plane for OpenTelemetry</strong><br>
-  Enforcing Purposeful Observability at the Edge.
+  <strong>Source Governance for OpenTelemetry</strong><br>
+  Tail sampling decides what to keep. Source Governance decides what should exist.
 </p>
 <p align="center">
   <img src="https://raw.githubusercontent.com/clarvynn/.github/main/assets/logo.jpg" alt="Clarvynn logo" width="100" />
